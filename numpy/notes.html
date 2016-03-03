@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-03-03 四 11:38 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Jian Qin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. 内容来源:</a></li>
+<li><a href="#orgheadline6">2. 内容:</a>
+<ul>
+<li><a href="#orgheadline3">2.1. 数据类型</a>
+<ul>
+<li><a href="#orgheadline2">2.1.1. 注意事项</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline4">2.2. Array的创建</a></li>
+<li><a href="#orgheadline5">2.3. Array的访问</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> 内容来源:</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="https://docs.scipy.org/doc/numpy-dev/user/basics.html">https://docs.scipy.org/doc/numpy-dev/user/basics.html</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> 内容:</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">2.1</span> 数据类型</h3>
+<div class="outline-text-3" id="text-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">类型</th>
+<th scope="col" class="org-left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">bool_</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">int_</td>
+<td class="org-left">C long(int 32 or int 64)</td>
+</tr>
+
+<tr>
+<td class="org-left">intc</td>
+<td class="org-left">C int</td>
+</tr>
+
+<tr>
+<td class="org-left">intp</td>
+<td class="org-left">C size<sub>t</sub></td>
+</tr>
+
+<tr>
+<td class="org-left">int8</td>
+<td class="org-left">byte(-128 to 127 )</td>
+</tr>
+
+<tr>
+<td class="org-left">int16</td>
+<td class="org-left">-32768 to 32767</td>
+</tr>
+
+<tr>
+<td class="org-left">int32</td>
+<td class="org-left">-2147483648 to 2147483647</td>
+</tr>
+
+<tr>
+<td class="org-left">int64</td>
+<td class="org-left">-9223372036854775808 to 9223372036854775807</td>
+</tr>
+
+<tr>
+<td class="org-left">uint8</td>
+<td class="org-left">0~255</td>
+</tr>
+
+<tr>
+<td class="org-left">uint16</td>
+<td class="org-left">0 to 65535</td>
+</tr>
+
+<tr>
+<td class="org-left">uint32</td>
+<td class="org-left">0 to 4294967295</td>
+</tr>
+
+<tr>
+<td class="org-left">uint64</td>
+<td class="org-left">0 to 18446744073709551615</td>
+</tr>
+
+<tr>
+<td class="org-left">float_</td>
+<td class="org-left">float64</td>
+</tr>
+
+<tr>
+<td class="org-left">float16</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">float32</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">float64</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">complex_</td>
+<td class="org-left">complex128</td>
+</tr>
+
+<tr>
+<td class="org-left">complex64</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">complex128</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #fff59d;">import</span> numpy <span style="color: #fff59d;">as</span> np
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#26032;&#24314;&#23545;&#35937;</span>
+<span style="color: #ffcc80;">x</span> = np.float32(1.0)
+<span style="color: #ffcc80;">y</span> = np.int_([1,2,4])
+<span style="color: #ffcc80;">z</span> = np.arange(3, dtype=np.uint8)
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#36716;&#25442;&#31867;&#22411;</span>
+z.astype(<span style="color: #ff8A65;">float</span>)
+
+<span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">&#33719;&#24471;&#31867;&#22411;</span>
+<span style="background-color: #37474f;"> </span>z.dtype
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">dtype objects also contain information about the type, such as its bit-width and its byte-order. The data type can also be used indirectly to query properties of the type, such as whether it is an integer</span>
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#20197;&#19978;&#36825;&#21477;&#22914;&#26524;&#33258;&#24049;&#23454;&#29616;&#38656;&#35201;&#27880;&#24847;, bit-width&#21644;byte-order&#20063;&#26159;&#38656;&#35201;&#23384;&#20648;&#30340;.</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2"><span class="section-number-4">2.1.1</span> 注意事项</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ol class="org-ol">
+<li>numpy返回的array的元素不是普通的python类型, 其实是Array Scalar类型, 一些特殊情况下需要显式的转换成python的类型.</li>
+<li>浮点数精度的问题<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">2.2</span> Array的创建</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Array创建包括五种:
+</p>
+<ol class="org-ol">
+<li>Conversion from other Python structures (e.g., lists, tuples)</li>
+<li>Intrinsic numpy array array creation objects (e.g., arange, ones, zeros, etc.)</li>
+<li>Reading arrays from disk, either from standard or custom formats</li>
+<li>Creating arrays from raw bytes through the use of strings or buffers</li>
+<li>Use of special library functions (e.g., random)</li>
+</ol>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#20351;&#29992;Python&#30340;&#25968;&#25454;</span>
+<span style="color: #ffcc80;">x</span> = np.array([2,3,1,0])
+<span style="color: #ffcc80;">x</span> = np.array([2, 3, 1, 0])
+<span style="color: #ffcc80;">x</span> = np.array([[1,2.0],[0,0],(1+1j,3.)])
+<span style="color: #ffcc80;">x</span> = np.array([[ 1.+0.j, 2.+0.j], [ 0.+0.j, 0.+0.j], [ 1.+1.j, 3.+0.j]])
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#26032;&#24314;</span>
+np.zeros((2, 3))
+np.ones((2, 3))
+np.arange(10)
+np.arange(2, 10, dtype=np.<span style="color: #ff8A65;">float</span>)
+np.arange(2, 3, 0.1)
+np.linspace(1., 4., 6) <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">array([ 1. ,  1.6,  2.2,  2.8,  3.4,  4. ])</span>
+np.indices((3,3)) <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">array([[[0, 0, 0], [1, 1, 1], [2, 2, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]]]) &#20998;&#21035;&#25353;&#29031;&#34892;&#21015;&#22686;&#38271;</span>
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#20351;&#29992;genfromtxt&#35835;&#21462;&#25991;&#20214;</span>
+<span style="color: #fff59d;">import</span> numpy <span style="color: #fff59d;">as</span> np
+<span style="color: #fff59d;">from</span> StringIO <span style="color: #fff59d;">import</span> StringIO
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">genfromtxt&#20256;&#20837;URL&#30340;&#35805;&#20250;&#33258;&#21160;&#19979;&#36733;&#25991;&#20214;&#21040;&#24403;&#21069;&#30446;&#24405;</span>
+<span style="color: #ffcc80;">data</span> = <span style="color: #9ccc65;">"1, 2, 3\n4, 5, 6"</span>
+np.genfromtxt(StringIO(data), delimiter=<span style="color: #9ccc65;">","</span>)
+
+<span style="color: #b0bec5;">## </span><span style="color: #b0bec5;">&#29992;&#22788;&#19981;&#22823;&#30340;&#26041;&#27861;</span>
+<span style="color: #ffcc80;">data</span> = <span style="color: #9ccc65;">"  1  2  3\n  4  5 67\n890123  4"</span>
+np.genfromtxt(StringIO(data), delimiter=3) <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#20351;&#29992;&#30456;&#21516;&#38271;&#24230;&#20999;&#21106;</span>
+<span style="color: #ffcc80;">data</span> = <span style="color: #9ccc65;">"123456789\n   4  7 9\n   4567 9"</span>
+np.genfromtxt(StringIO(data), delimiter=(4, 3, 2))
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#27880;&#37322;&#22788;&#29702;</span>
+np.genfromtxt(StringIO(data), comments=<span style="color: #9ccc65;">"#"</span>, delimiter=<span style="color: #9ccc65;">","</span>)
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#36339;&#36807;&#22836;&#23614;</span>
+np.genfromtxt(StringIO(data), skip_header=3, skip_footer=5)
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#25351;&#23450;&#20351;&#29992;&#37096;&#20998;&#21015;</span>
+np.genfromtxt(StringIO(data), usecols=(0, -1))
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#25351;&#23450;&#31867;&#22411;, &#40664;&#35748;&#31867;&#22411;&#20026;float</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">a single type, such as dtype=float. The output will be 2D with the given dtype, unless a name has been associated with each column with the use of the names argument (see below). Note that dtype=float is the default for genfromtxt.</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">a sequence of types, such as dtype=(int, float, float).</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">a comma-separated string, such as dtype="i4,f8,|S3".</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">a dictionary with two keys 'names' and 'formats'.</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">a sequence of tuples (name, type), such as dtype=[('A', int), ('B', float)].</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">an existing numpy.dtype object.</span>
+<span style="color: #b0bec5;">#    </span><span style="color: #b0bec5;">the special value None. In that case, the type of the columns will be determined from the data itself (see below).</span>
+
+<span style="color: #b0bec5;">## </span><span style="color: #b0bec5;">&#21097;&#19979;&#20869;&#23481;&#36807;&#20110;&#32321;&#29712;, &#24456;&#38590;&#29992;&#19978;&#20102;.</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.3</span> Array的访问</h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+
+<pre class="src src-python">x[2]
+x[1, 3] <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">2d array</span>
+x[1, -1]
+x[1][3] <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#25928;&#26524;&#22914; x[1, 3], &#20294;&#26159;&#25928;&#29575;&#20250;&#20302;, &#38656;&#35201;&#20013;&#38388;&#29983;&#25104; x[1]&#30340;&#19968;&#20010;&#25968;&#32452;</span>
+x[2:5]
+x[:-1]
+x[1:7:2]
+
+<span style="color: #ffcc80;">y</span> = np.arange(35).reshape(5,7)
+y[1:5:2,::3] <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#36873; 1, 3&#34892;, &#27599;&#21015;3&#20010;&#19968;&#36339;</span>
+
+<span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">&#20351;&#29992;array&#26469;&#36873;&#25321;</span>
+x[np.array([3, 3, 1, 8])]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+暂时不需要考虑.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Jian Qin</p>
+<p class="date">Created: 2016-03-03 四 11:38</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

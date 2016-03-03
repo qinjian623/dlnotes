@@ -1,0 +1,146 @@
+* 内容来源:
++ https://docs.scipy.org/doc/numpy-dev/user/basics.html
+
+* 内容:
+** 数据类型
+   
+| 类型       | 描述                                        |
+|------------+---------------------------------------------|
+| bool_      |                                             |
+| int_       | C long(int 32 or int 64)                    |
+| intc       | C int                                       |
+| intp       | C size_t                                    |
+| int8       | byte(-128 to 127 )                          |
+| int16      | -32768 to 32767                             |
+| int32      | -2147483648 to 2147483647                   |
+| int64      | -9223372036854775808 to 9223372036854775807 |
+| uint8      | 0~255                                       |
+| uint16     | 0 to 65535                                  |
+| uint32     | 0 to 4294967295                             |
+| uint64     | 0 to 18446744073709551615                   |
+| float_     | float64                                     |
+| float16    |                                             |
+| float32    |                                             |
+| float64    |                                             |
+| complex_   | complex128                                  |
+| complex64  |                                             |
+| complex128 |                                             |
+
+#+BEGIN_SRC python 
+import numpy as np
+
+# 新建对象
+x = np.float32(1.0)
+y = np.int_([1,2,4])
+z = np.arange(3, dtype=np.uint8)
+
+# 转换类型
+z.astype(float)
+
+#获得类型
+ z.dtype
+
+# dtype objects also contain information about the type, such as its bit-width and its byte-order. The data type can also be used indirectly to query properties of the type, such as whether it is an integer
+# 以上这句如果自己实现需要注意, bit-width和byte-order也是需要存储的.
+
+#+END_SRC
+
+*** 注意事项
+    1. numpy返回的array的元素不是普通的python类型, 其实是Array Scalar类型, 一些特殊情况下需要显式的转换成python的类型.
+    2. 浮点数精度的问题[fn:1].
+
+
+** Array的创建
+   Array创建包括五种:
+   1. Conversion from other Python structures (e.g., lists, tuples)
+   2. Intrinsic numpy array array creation objects (e.g., arange, ones, zeros, etc.)
+   3. Reading arrays from disk, either from standard or custom formats
+   4. Creating arrays from raw bytes through the use of strings or buffers
+   5. Use of special library functions (e.g., random)
+
+#+BEGIN_SRC python
+# 使用Python的数据
+x = np.array([2,3,1,0])
+x = np.array([2, 3, 1, 0])
+x = np.array([[1,2.0],[0,0],(1+1j,3.)])
+x = np.array([[ 1.+0.j, 2.+0.j], [ 0.+0.j, 0.+0.j], [ 1.+1.j, 3.+0.j]])
+
+# 新建
+np.zeros((2, 3))
+np.ones((2, 3))
+np.arange(10)
+np.arange(2, 10, dtype=np.float)
+np.arange(2, 3, 0.1)
+np.linspace(1., 4., 6) # array([ 1. ,  1.6,  2.2,  2.8,  3.4,  4. ])
+np.indices((3,3)) # array([[[0, 0, 0], [1, 1, 1], [2, 2, 2]], [[0, 1, 2], [0, 1, 2], [0, 1, 2]]]) 分别按照行列增长
+
+# 使用genfromtxt读取文件
+import numpy as np
+from StringIO import StringIO
+# genfromtxt传入URL的话会自动下载文件到当前目录
+data = "1, 2, 3\n4, 5, 6"
+np.genfromtxt(StringIO(data), delimiter=",")
+
+## 用处不大的方法
+data = "  1  2  3\n  4  5 67\n890123  4"
+np.genfromtxt(StringIO(data), delimiter=3) # 使用相同长度切割
+data = "123456789\n   4  7 9\n   4567 9"
+np.genfromtxt(StringIO(data), delimiter=(4, 3, 2))
+
+# 注释处理
+np.genfromtxt(StringIO(data), comments="#", delimiter=",")
+# 跳过头尾
+np.genfromtxt(StringIO(data), skip_header=3, skip_footer=5)
+# 指定使用部分列
+np.genfromtxt(StringIO(data), usecols=(0, -1))
+
+# 指定类型, 默认类型为float
+#    a single type, such as dtype=float. The output will be 2D with the given dtype, unless a name has been associated with each column with the use of the names argument (see below). Note that dtype=float is the default for genfromtxt.
+#    a sequence of types, such as dtype=(int, float, float).
+#    a comma-separated string, such as dtype="i4,f8,|S3".
+#    a dictionary with two keys 'names' and 'formats'.
+#    a sequence of tuples (name, type), such as dtype=[('A', int), ('B', float)].
+#    an existing numpy.dtype object.
+#    the special value None. In that case, the type of the columns will be determined from the data itself (see below).
+
+## 剩下内容过于繁琐, 很难用上了.
+#+END_SRC
+
+** Array的访问
+#+BEGIN_SRC python
+x[2]
+x[1, 3] # 2d array
+x[1, -1]
+x[1][3] # 效果如 x[1, 3], 但是效率会低, 需要中间生成 x[1]的一个数组
+x[2:5]
+x[:-1]
+x[1:7:2]
+
+y = np.arange(35).reshape(5,7)
+y[1:5:2,::3] # 选 1, 3行, 每列3个一跳
+
+# 使用array来选择
+x[np.array([3, 3, 1, 8])]
+
+y[np.array([0,2,4]), np.array([0,1,2])] # => {y[0,0], y[2,1], y[4,2]}
+y[np.array([0,2,4]), 1] # => {y[0,1], y[2,1], y[4,1]}
+
+# 过滤
+b = y>20
+y[b]
+
+y[np.array([0,2,4]),1:3]
+y[b[:,5],1:3]
+
+z = np.arange(81).reshape(3,3,3,3)
+z[1,...,2] # == z[1,:,:,2] 
+# slice的
+(1,1,1, slice(2,2)) # == [1,1,1,0:2]
+(1, Ellipsis, 1) # == [1,...,1]
+# For this reason it is possible to use the output from the np.where() function directly as an index 
+# since it always returns a tuple of index arrays.
+
+#+END_SRC
+* Footnotes
+
+[fn:1] 暂时不需要考虑.
