@@ -21,7 +21,6 @@ def svm_loss_naive(W, X, y, reg):
     - gradient with respect to weights W; an array of same shape as W
     """
     dW = np.zeros(W.shape)  # initialize the gradient as zero
-
     # compute the loss and the gradient
     num_classes = W.shape[1]
     num_train = X.shape[0]
@@ -41,14 +40,12 @@ def svm_loss_naive(W, X, y, reg):
         dW_one = X[i].reshape(X.shape[1], 1).dot(tmp)
         dW_one[:, y[i]] = -correct_class_gradient
         dW += dW_one
-
     # Right now the loss is a sum over all training examples, but we want it
     # to be an average instead so we divide by num_train.
     loss /= num_train
     dW /= num_train
     # Add regularization to the loss.
     loss += 0.5 * reg * np.sum(W * W)
-
     ##########################################################################
     # TODO:                                                                     #
     # Compute the gradient of the loss function and store it dW.                #
@@ -57,7 +54,7 @@ def svm_loss_naive(W, X, y, reg):
     # loss is being computed. As a result you may need to modify some of the    #
     # code above to compute the gradient.                                       #
     ##########################################################################
-
+    print dW[0, :]
     return loss, dW
 
 
@@ -76,20 +73,31 @@ def svm_loss_vectorized(W, X, y, reg):
     # result in loss.                                                           #
     ##########################################################################
     scores = X.dot(W)
+    # 500x1
     correct_class_score = scores[
         range(scores.shape[0]), y.reshape(1, y.shape[0])].T
+    # 500x10
     margins = np.maximum(0, scores - correct_class_score + 1)
+    # set correct class margin to 0
     margins[range(margins.shape[0]), y.reshape(1, y.shape[0])] = 0
     loss = np.sum(margins) / X.shape[0]
 
-    correct_class_gradient = X[i] * np.sum(margin_mask)
-    dW_one = np.zeros(W.shape)
-    tmp = np.zeros(margin_mask.shape)
-    tmp[margin_mask] = 1
-    tmp = tmp.reshape(1, num_classes)
-    dW_one = X[i].reshape(X.shape[1], 1).dot(tmp)
-    dW_one[:, y[i]] = -correct_class_gradient
-    dW += dW_one
+    correct_class_gradient = X * np.sum(margins > 0, axis=1).reshape((500, 1))
+
+    # correct_class_gradient = np.sum(
+    #   correct_class_gradient / X.shape[0], axis=0)
+    tmp = np.zeros(margins.shape)
+    tmp[margins > 0] = 1
+    dW = X.T.dot(tmp)
+    # for idx, ly in enumerate(y):
+    #    dW[:, ly] = -correct_class_gradient[idx, :]
+    # dW = dW / X.shape[0]
+    print dW[0, :]
+
+    dW_all = X[:, :, np.newaxis] * margins[:, np.newaxis, :]
+    print dW_all[0, 0, :]
+    # dW_all[range(dW_all.shape[0]), :, y] = -correct_class_gradient
+    # dW = np.sum(dW_all, axis=0) / X.shape[0]
     ##########################################################################
     #                             END OF YOUR CODE                              #
     ##########################################################################
@@ -104,7 +112,6 @@ def svm_loss_vectorized(W, X, y, reg):
     # loss.                                                                     #
     ##########################################################################
 
-    pass
     ##########################################################################
     #                             END OF YOUR CODE                              #
     ##########################################################################
