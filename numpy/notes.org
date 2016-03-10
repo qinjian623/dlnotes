@@ -141,6 +141,7 @@ z[1,...,2] # == z[1,:,:,2]
 # since it always returns a tuple of index arrays.
 
 #+END_SRC
+
 * Footnotes
 
 [fn:1] 暂时不需要考虑.
