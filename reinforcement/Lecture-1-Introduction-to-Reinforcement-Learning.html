@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-03-15 二 15:56 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Jian Qin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. Materials</a></li>
+<li><a href="#orgheadline23">2. 1</a>
+<ul>
+<li><a href="#orgheadline2">2.1. Reinforcement Learning特点</a></li>
+<li><a href="#orgheadline22">2.2. 几个概念</a>
+<ul>
+<li><a href="#orgheadline3">2.2.1. Rewards</a></li>
+<li><a href="#orgheadline4">2.2.2. Sequential Decision Making</a></li>
+<li><a href="#orgheadline5">2.2.3. 环境与交互</a></li>
+<li><a href="#orgheadline11">2.2.4. 历史与状态</a></li>
+<li><a href="#orgheadline17">2.2.5. RL Agent</a></li>
+<li><a href="#orgheadline18">2.2.6. Sequential decision making的两类问题</a></li>
+<li><a href="#orgheadline21">2.2.7. RL的问题分类</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Materials</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li><a href="http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/intro_RL.pdf">http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching_files/intro_RL.pdf</a></li>
+<li><a href="https://www.youtube.com/watch?v=2pWv7GOvuf0&amp;index=1&amp;list=PL5X3mDkKaJrL42i_jhE4N-p6E2Ol62Ofa">https://www.youtube.com/watch?v=2pWv7GOvuf0&index=1&list=PL5X3mDkKaJrL42i_jhE4N-p6E2Ol62Ofa</a></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgheadline23" class="outline-2">
+<h2 id="orgheadline23"><span class="section-number-2">2</span> 1</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Reinforcement Learning特点</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li>无监督, 只需要一个reward</li>
+<li>反馈会有延时(有些决策可能在未来一段时间后才显得收获更大)</li>
+<li>与时间是相关的, 现在的状态与之前的状态还有决策都是有关系的(不像一般的数据之间都是没有关联的)</li>
+<li>有一个反馈的过程, 你的决定会对后续的数据产生影响</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgheadline22" class="outline-3">
+<h3 id="orgheadline22"><span class="section-number-3">2.2</span> 几个概念</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">2.2.1</span> Rewards</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+反馈, 表明当前步agent的决策表现的如何. 主要的目标就是最大化不断积累的Rewards.
+</p>
+
+<p>
+RL的理论基础也是基于Reward hypothesis: 
+</p>
+<blockquote>
+<p>
+所有的目的, 都是可以用累加的Rewards来表示的.
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">2.2.2</span> Sequential Decision Making</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+通过actions来最大化最终未来的reward. Actions都会有长期的影响的, 而reward不是立即的(有些事情本来就需要一段时间后才能看到效果), 还需要考虑当前利益和长期利益之间的平衡. 
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">2.2.3</span> 环境与交互</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<ul class="org-ul">
+<li>对于Agent: A<sub>t</sub>, O<sub>t</sub>, R<sub>t</sub></li>
+<li>对于环境: A<sub>t</sub>, O<sub>t</sub>+1, R<sub>t</sub>+1</li>
+</ul>
+
+<p>
+事实上,对于agent来说, 能够控制的只有自己的action. 其他的都是环境的反馈.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">2.2.4</span> 历史与状态</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+历史就是上面A,O,R的整个序列. 状态是用于表明接下来情况的信息: \(S_t = f(H_t)\)
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline6"></a>环境状态<br  /><div class="outline-text-5" id="text-2-2-4-1">
+<p>
+一般来说都是看不到的(如果看得到, 直接拿环境状态建立模型就可以了), 环境中所有影响下次O和R输出的因素.
+</p>
+</div></li>
+<li><a id="orgheadline7"></a>Agent状态<br  /><div class="outline-text-5" id="text-2-2-4-2">
+<p>
+Agent用来选择下一个action的所有因素. \(S^a_t = f(H_t)\)
+</p>
+</div></li>
+<li><a id="orgheadline8"></a>Information State(马尔可夫状态)<br  /><div class="outline-text-5" id="text-2-2-4-3">
+<p>
+包括所有历史信息. 马尔可夫状态不多说.
+</p>
+</div></li>
+<li><a id="orgheadline9"></a>Fully Observable Environments(Markov decision process)<br  /><div class="outline-text-5" id="text-2-2-4-4">
+<p>
+Agent state = Environment state = Information state
+</p>
+</div></li>
+<li><a id="orgheadline10"></a>Partially Observable Environments (Partially observable Markov decision process)<br  /><div class="outline-text-5" id="text-2-2-4-5">
+<p>
+Agent state != Environment state
+</p>
+</div></li></ol>
+</div>
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">2.2.5</span> RL Agent</h4>
+<div class="outline-text-4" id="text-2-2-5">
+</div><ol class="org-ol"><li><a id="orgheadline15"></a>组成部分<br  /><div class="outline-text-5" id="text-2-2-5-1">
+<p>
+三个部分:
+</p>
+<ul class="org-ul">
+<li>Policy</li>
+<li>Value Function</li>
+<li>Model</li>
+</ul>
+</div>
+<ol class="org-ol"><li><a id="orgheadline12"></a>Policy<br  /><div class="outline-text-6" id="text-2-2-5-1-1">
+<p>
+Agent的具体行为, 从state到action的映射(有可能是确定的, 有可能是概率的)
+</p>
+</div></li>
+<li><a id="orgheadline13"></a>Value Function<br  /><div class="outline-text-6" id="text-2-2-5-1-2">
+<p>
+对未来reward的预测, 表明当前的状态的好坏, 其实也就是考察agent的行为的好坏.
+</p>
+</div></li>
+<li><a id="orgheadline14"></a>Model<br  /><div class="outline-text-6" id="text-2-2-5-1-3">
+<p>
+预测环境. 是agent本人对环境的建模.
+</p>
+<ul class="org-ul">
+<li>P 下一个状态</li>
+<li>R 下一步的Reward</li>
+</ul>
+</div></li></ol></li>
+<li><a id="orgheadline16"></a>分类<br  /><div class="outline-text-5" id="text-2-2-5-2">
+<ul class="org-ul">
+<li>Value based</li>
+<li>Policy based</li>
+<li>Actor Critic</li>
+</ul>
+
+
+<p>
+后面还有model free这一类.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">2.2.6</span> Sequential decision making的两类问题</h4>
+<div class="outline-text-4" id="text-2-2-6">
+<ol class="org-ol">
+<li>RL问题 (涉及学习和交互)</li>
+<li>Planning (类似于传统的搜索方法, 没有什么学习和改进的存在)</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">2.2.7</span> RL的问题分类</h4>
+<div class="outline-text-4" id="text-2-2-7">
+</div><ol class="org-ol"><li><a id="orgheadline19"></a>Exploration and Exploitation<br  /><div class="outline-text-5" id="text-2-2-7-1">
+<p>
+前者偏重查找新的方法, 后者偏重已知的最优方法.
+</p>
+</div></li>
+
+<li><a id="orgheadline20"></a>Prediction and Control<br  /><div class="outline-text-5" id="text-2-2-7-2">
+<p>
+前者评估未来的情况, 给出一个策略, 后者查找最好的策略.<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</p>
+</div></li></ol>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Gridworld Example需要看下视频
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Jian Qin</p>
+<p class="date">Created: 2016-03-15 二 15:56</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
