@@ -1,0 +1,46 @@
+* MDP定义
+  MDP定义了一个适合应用RL的环境. 环境完全可见, 与历史无关. 
+  #+BEGIN_QUOTE
+  Almost all RL problems can be formalised as MDPs, 
+  #+END_QUOTE
+  具体定义略过.
+
+** 组成
+   1. 所有的状态集(S)
+   2. 状态转移矩阵(P)
+
+* Markov Reward Process
+  #+BEGIN_QUOTE
+  A Markov reward process is a Markov chain with values.
+  #+END_QUOTE
+  具体定义:
+  1. S 同上
+  2. P 同上
+  3. R reward function  $R_s = E[R_{t+1} |  S_t = s]$
+  4. \gamma discount factor, $\gamma  \in [0,1]$
+
+**  Return
+   $G_t = \sum_{k = 0}^{\infty}\gamma^kR_{t+k+1}$
+   其中的discount factor如果是0, 则侧重眼前, 1, 则更加注意整体利益.
+
+*** 为什么使用discount?
+    1. 数学上合适[fn:1]
+    2. 避免无限循环
+    3. 未来的不确定性没法完全的表示[fn:2]
+    4. 财务上, 立即赚钱相对来说更加划算
+    5. 动物和人类也表现的更加喜欢即时的奖励[fn:3]
+    6. 某些情况下适合使用[fn:4]
+
+** Value Function
+   the expected return starting from state /s/:
+   
+   $v(s) = E[G_t | S_t = s]$
+* Footnotes
+
+[fn:4] 具体的使用场景?
+
+[fn:3] 这不代表机器也要一样.
+
+[fn:2] ?
+
+[fn:1] Why?
