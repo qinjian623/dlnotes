@@ -74,8 +74,9 @@ class TwoLayerNet(object):
         # Store the result in the scores variable, which should be an array of      #
         # shape (N, C).                                                             #
         #######################################################################
-        hidden_scores = np.maximum(0, X.dot(W1) + b1)
-        scores = (hidden_scores.dot(W2) + b2)
+        hidden_scores = X.dot(W1) + b1
+        hidden_scores_relu = np.maximum(0, hidden_scores)
+        scores = (hidden_scores_relu.dot(W2) + b2)
         # print scores.shape
         # Don't need softmax yet.
         # scores = np.exp(scores) / np.sum(np.exp(scores),
@@ -114,21 +115,42 @@ class TwoLayerNet(object):
         # and biases. Store the results in the grads dictionary. For example,       #
         # grads['W1'] should store the gradient on W1, and be a matrix of same size #
         #######################################################################
+
+        # Output layer
         dW2 = np.zeros_like(W2.shape)
-        dW2 = hidden_scores.T.dot(softmax)
+        dW2 = hidden_scores_relu.T.dot(softmax)
         db2 = np.zeros_like(b2.shape)
         db2 = np.ones((1, 5)).dot(softmax)
-        # print b2.shape, softmax.shape, hidden_scores.shape
-        print W2.shape, y.shape, hidden_scores.shape, softmax.shape, W1.shape, X.shape
         for i in range(y.shape[0]):
-            dW2[:, y[i]] -= hidden_scores[i, :]
+            dW2[:, y[i]] -= hidden_scores_relu[i, :]
             db2[:, y[i]] -= 1
-        dW2 /= hidden_scores.shape[0]
+        dW2 /= hidden_scores_relu.shape[0]
         dW2 += reg * W2
-
+        db2 /= hidden_scores_relu.shape[0]
         db2 += reg * b2
         grads['W2'] = dW2
         grads['b2'] = db2
+
+        # Hidden layer
+        dW1 = np.zeros_like(W1.shape)
+        db1 = np.zeros_like(b1.shape)
+
+        drelu = np.ones(hidden_scores.shape)
+        # print drelu.shape, (hidden_scores < 0).shape
+        drelu[hidden_scores < 0] = 0
+        dhs = (softmax).dot(W2.T)
+        dhs = dhs * drelu
+        # dhs[...] = 1
+        # print dhs.shape, X.shape
+        dW1 = X.T.dot(dhs)
+        # print hidden_scores
+        # print hidden_scores, dW1
+        # dW1[hidden_scores <= 0] = 0
+        dW1 /= X.shape[0]
+        # dW1 += reg * W1
+        # print dW1
+        grads['W1'] = dW1
+        # dW1 = X.t.dot()
         #######################################################################
         #                              END OF YOUR CODE                             #
         #######################################################################
