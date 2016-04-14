@@ -1,0 +1,72 @@
+#+LATEX_HEADER: \usepackage{xeCJK}
+#+LaTeX_CLASS_OPTIONS: [a4paper,twoside,twocolumn]
+
+* Checklist [13/13]                                                :noexport:
+  - [X] 历史
+  - [ ]  目前进展
+
+* 资料 
+  1. [[http://www.deeplearningbook.org/][/Deep Learning/]] [[https://github.com/HFTrader/DeepLearningBook][PDF on github]]
+  2. [[http://cs231n.github.io/][CS231n Convolutional Neural Networks for Visual Recognition]] 
+  3. [[https://www.coursera.org/course/neuralnets][Neural Networks for Machine Learning]]
+  4. [[http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial][UFLDL Tutorial]]
+
+* 结构
+** 历史与现况
+*** 历史
+    从1940s到2014: http://people.idsia.ch/~juergen/DeepLearning15May2014.pdf
+*** 现况
+    1. Andrew Ng, [[ftp://10.10.24.13/videos/dl/detection-demo-VEqhw9OgDl0.mp4][Highway]]
+    2. NLP
+    3. Imagenet
+    4. 
+** 监督机器学习的结构
+   假设我们获得了一部分的房价与房屋面积数据, 如下:
+   #+attr_html: :width 500px
+   [[./imgs/house_prices.png]]
+   
+   对应的一条数据的格式是 $\left \{  x, y \right \}$, 其中x为面积, y为房价. 这些数据的(一部分)集合 $\left \{  (x_i, y_i); i = 1, ..., m \right \}$ 可以叫做训练集(training set)
+
+   那么, 监督机器学习可以如下理解: 
+#+BEGIN_QUOTE
+利用已知的训练集, 学习一个函数 h: $X\rightarrow Y$, h(x)的结果对y的预测达到我们预设的"足够好"的标准.
+#+END_QUOTE
+
+   如果我们需要根据房屋面积预测房价, 那么我们需要学习一个函数 h(x), 输入x为面积, 输出y为房价. 最简单的一个可以学习的函数就是线性函数, 对于y的预测, 属于回归问题.
+** 线性回归/感知机
+*** 介绍与分类原理
+    线性回归的形式:
+    $y = W*x + b$
+    其中, $W= {w_0, w_1, ... , w_n}$ , $ x = {x_0, x_1, ..., x_n}$, 展开表达式为: $y = \sum_0^n{w_i * x_i} + b$ .
+    模型的参数W需要通过学习来获得. 那么, 如何学习W的具体值?
+    根据我们之前对于监督机器学习的理解, 我们需要一个预设的"足够好"的标准. 这一标准是需要人工选择的, 机器无法判断h(x)的结果与对应的y需要符合什么样的标准才是"好".
+**** Cost Function
+     对于上面的例子, 我们可以这样考虑: 
+#+BEGIN_SRC quote
+h(x)的预测与实际y值之间的差别越小越好. 理想情况下, 应该是一模一样.
+#+END_SRC
+*** 特征选择问题(多项式)
+*** 正则/Overfitting
+    [[./imgs/overfitting.png]]
+*** 感知机的局限(异或问题)
+** 多层感知机/ANN
+*** 网络结构(linear model + activity function)
+*** 激活函数(Sigmoid/ Tanh / ReLU etc.)
+*** 前向算法
+*** 后向算法
+** 无监督学习
+*** Autoencoder
+** 卷积网络
+*** 理解Sobel边界检测
+** RNN
+   1. http://karpathy.github.io/2015/05/21/rnn-effectiveness/ 
+** 如何构造与应用
+* Refs
+  1. [[http://machinelearningmastery.com/how-to-layout-and-manage-your-machine-learning-project/][How to Layout and Manage Your Machine Learning Project]]
+  2. [[http://www.denizyuret.com/2014/02/machine-learning-in-5-pictures.html][Machine learning in 10 pictures]]
+  3. [[https://zh.wikipedia.org/zh/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0][深度学习-wiki]]
+  4. [[https://github.com/jatinshah/ufldl_tutorial][Ufldl tutorial in Python]]
+  5. https://colah.github.io/posts/2014-07-Conv-Nets-Modular/ [[https://github.com/colah/Conv-Nets-Series][Github]]
+  6. http://cs229.stanford.edu/materials.html
+
+

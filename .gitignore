@@ -1,3 +1,11 @@
 *~
 *#
 .\#*
+*.log
+*.out
+*.tex
+*.toc
+*.aux
+*.html
+ltxpng
+
