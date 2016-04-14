@@ -1,5 +1,5 @@
 #+LATEX_HEADER: \usepackage{xeCJK}
-#+LaTeX_CLASS_OPTIONS: [a4paper,twoside,twocolumn]
+#+LaTeX_CLASS_OPTIONS: [a4paper]
 
 * Checklist [13/13]                                                :noexport:
   - [X] 历史
@@ -31,24 +31,38 @@
 #+BEGIN_QUOTE
 利用已知的训练集, 学习一个函数 h: $X\rightarrow Y$, h(x)的结果对y的预测达到我们预设的"足够好"的标准.
 #+END_QUOTE
-
    如果我们需要根据房屋面积预测房价, 那么我们需要学习一个函数 h(x), 输入x为面积, 输出y为房价. 最简单的一个可以学习的函数就是线性函数, 对于y的预测, 属于回归问题.
 ** 线性回归/感知机
 *** 介绍与分类原理
-    线性回归的形式:
-    $y = W*x + b$
-    其中, $W= {w_0, w_1, ... , w_n}$ , $ x = {x_0, x_1, ..., x_n}$, 展开表达式为: $y = \sum_0^n{w_i * x_i} + b$ .
-    模型的参数W需要通过学习来获得. 那么, 如何学习W的具体值?
-    根据我们之前对于监督机器学习的理解, 我们需要一个预设的"足够好"的标准. 这一标准是需要人工选择的, 机器无法判断h(x)的结果与对应的y需要符合什么样的标准才是"好".
+**** 线性回归的形式
+     $y = W*x + b$
+     其中, $W= {w_0, w_1, ... , w_n}$ , $ x = {x_0, x_1, ..., x_n}$, 展开表达式为: $y = \sum_0^n{w_i * x_i} + b$ .
+     模型的参数W需要通过学习来获得. 那么, 如何学习W的具体值?
+     根据我们之前对于监督机器学习的理解, 我们需要一个预设的"足够好"的标准. 这一标准是需要人工选择的, 机器无法判断h(x)的结果与对应的y需要符合什么样的标准才是"好".
 **** Cost Function
      对于上面的例子, 我们可以这样考虑: 
 #+BEGIN_SRC quote
-h(x)的预测与实际y值之间的差别越小越好. 理想情况下, 应该是一模一样.
+h(x)的预测与实际y值之间的差别越小越好. 特别是, 如果在理想情况下, 应该是一模一样. 
 #+END_SRC
+于是我们可以定义: |h(x) - y|作为评价指标. 考虑到绝对值后续会遇到判断的问题, 更加简单的形式可以定义为 $J = \frac{1}{2}\left ( h(x) - y \right ) ^2$. 
+那么针对这一问题的学习过程就是, 通过改变W的值来最小化 $J$ 的过程.
+**** 学习过程
+     为了获得 $J$ 的最小值, 我们可以有如下选择:
+     1. 不断随机W值, 找到最小值.
+     2. 在一个随机的W值的基础上, 使用随机的修正值.
+     3. 在一个随机的w值的基础上, 使用有目的的修正值.
+     
+        
+     很明显的, 第三种方法是效率上最高的. 那么, 如何获得"有目的"的修正值? $J$ 在最小化的情况下, 其导数是为0的, 而恰好 $J$ 是一个理想的凸函数, 只需要沿着导数下降的方向进行修正, 就能保证到达 $J$ 的最小值.
+     
 *** 特征选择问题(多项式)
 *** 正则/Overfitting
     [[./imgs/overfitting.png]]
+*** 训练方法问题
+**** 验证集/训练集的解释问题
+**** Learning Rate相关
 *** 感知机的局限(异或问题)
+
 ** 多层感知机/ANN
 *** 网络结构(linear model + activity function)
 *** 激活函数(Sigmoid/ Tanh / ReLU etc.)
@@ -59,7 +73,10 @@ h(x)的预测与实际y值之间的差别越小越好. 理想情况下, 应该�
 ** 卷积网络
 *** 理解Sobel边界检测
 ** RNN
-   1. http://karpathy.github.io/2015/05/21/rnn-effectiveness/ 
+   1. http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+
+
 ** 如何构造与应用
 * Refs
   1. [[http://machinelearningmastery.com/how-to-layout-and-manage-your-machine-learning-project/][How to Layout and Manage Your Machine Learning Project]]
