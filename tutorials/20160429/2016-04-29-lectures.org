@@ -19,7 +19,7 @@
     1. Andrew Ng, [[ftp://10.10.24.13/videos/dl/detection-demo-VEqhw9OgDl0.mp4][Highway]]
     2. NLP
     3. Imagenet
-    4. 
+    4. ipython notebook
 ** 监督机器学习的结构
    假设我们获得了一部分的房价与房屋面积数据, 如下:
    #+attr_html: :width 500px
@@ -72,15 +72,15 @@ w_j = w_j - \alpha \frac{d}{dw_j} J(W)
 
 为了实现这样的更新算法, 我们需要知道 $\frac{d}{dw_j} J(W)$ 这一项. 我们已知 $J$ 的形式, 于是针对每个w_j 求偏导就可以:
 \begin{align*}
-\frac{d}{dw_j} J(W) &= \frac{d}{dw_j} \frac{1}{2} (J_w(x) - y)^2 \\
-&= 2 \cdot  \frac{1}{2}(J_w(x) - y) \cdot \frac{d}{dw_j} (J_w(x) - y) \\
-&= (J_w(x) - y) \cdot \frac{d}{dw_j} (\sum_{i=0}^{n}w_ix_i - y) \\
-&= (J_w(x) - y) x_j
+\frac{d}{dw_j} J(W) &= \frac{d}{dw_j} \frac{1}{2} (h_w(x) - y)^2 \\
+&= 2 \cdot  \frac{1}{2}(h_w(x) - y) \cdot \frac{d}{dw_j} (h_w(x) - y) \\
+&= (h_w(x) - y) \cdot \frac{d}{dw_j} (\sum_{i=0}^{n}w_ix_i - y) \\
+&= (h_w(x) - y) x_j
 \end{align*}
 
 于是我们每次更新的就方式就是:
 \begin{equation*}
-w_j = w_j - \alpha(J(x) - y)x_j
+w_j = w_j - \alpha(h(x) - y)x_j
 \end{equation*}
 
 由于我们的训练集 $X$ 是一组数据, 我们可以选择两种方式来更新:
@@ -88,14 +88,14 @@ w_j = w_j - \alpha(J(x) - y)x_j
 #+BEGIN_quote
 while { \\
   for i = 1 to m { \\
-    $w_j = w_j - \alpha (J(x_i) - y) x_j$ (for every j) \\
+    $w_j = w_j - \alpha (h(x_i) - y) x_j$ (for every j) \\
   } \\
 }
 #+END_quote
  + 遍历所有x后统一更新
 #+BEGIN_quote
 while { \\
-  $w_j = w_j - \alpha\sum_{i = 1}^m(J(x_i) - y)x_j$ (for every j) \\
+  $w_j = w_j - \alpha\sum_{i = 1}^m(h(x_i) - y)x_j$ (for every j) \\
 }
 #+END_quote
 另外可以作为折中, 遍历一部分x后再更新.
@@ -103,6 +103,7 @@ while { \\
 *** 正则/Overfitting
     [[./imgs/overfitting.png]]
 *** 训练方法问题
+**** 牛顿法?
 **** 验证集/训练集的解释问题
 **** Learning Rate相关
 *** 感知机的局限(异或问题)
@@ -129,5 +130,6 @@ while { \\
   4. [[https://github.com/jatinshah/ufldl_tutorial][Ufldl tutorial in Python]]
   5. https://colah.github.io/posts/2014-07-Conv-Nets-Modular/ [[https://github.com/colah/Conv-Nets-Series][Github]]
   6. http://cs229.stanford.edu/materials.html
+  7. http://blog.csdn.net/zouxy09/article/details/8781543
 
 
