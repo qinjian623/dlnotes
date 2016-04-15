@@ -1,7 +1,7 @@
 #+LATEX_HEADER: \usepackage{xeCJK}
-#+LaTeX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS_OPTIONS: [a4paper, twocolumn]
 
-* Checklist [13/13]                                                :noexport:
+* Checklist [1/2]                                                  :noexport:
   - [X] 历史
   - [ ]  目前进展
 
@@ -29,20 +29,27 @@
 
    那么, 监督机器学习可以如下理解: 
 #+BEGIN_QUOTE
-利用已知的训练集, 学习一个函数 h: $X\rightarrow Y$, h(x)的结果对y的预测达到我们预设的"足够好"的标准.
+利用已知的训练集, 学习一个函数 h: $X\rightarrow Y$, h(x)的结果对y的预测达到我们预设的 _足够好_ 的标准.
 #+END_QUOTE
    如果我们需要根据房屋面积预测房价, 那么我们需要学习一个函数 h(x), 输入x为面积, 输出y为房价. 最简单的一个可以学习的函数就是线性函数, 对于y的预测, 属于回归问题.
 ** 线性回归/感知机
 *** 介绍与分类原理
 **** 线性回归的形式
-     $y = W*x + b$
-     其中, $W= {w_0, w_1, ... , w_n}$ , $ x = {x_0, x_1, ..., x_n}$, 展开表达式为: $y = \sum_0^n{w_i * x_i} + b$ .
+\begin{equation}
+y = W*x + b
+\end{equation}
+其中, $W= {w_0, w_1, ... , w_n}$ , $ x = {x_0, x_1, ..., x_n}$, 
+如果将向量形式展开, 变成标量的格式, 则表达式为: 
+\begin{equation}
+y = \sum_0^n{w_i * x_i} + b
+\end{equation}
      模型的参数W需要通过学习来获得. 那么, 如何学习W的具体值?
      根据我们之前对于监督机器学习的理解, 我们需要一个预设的"足够好"的标准. 这一标准是需要人工选择的, 机器无法判断h(x)的结果与对应的y需要符合什么样的标准才是"好".
 **** Cost Function
      对于上面的例子, 我们可以这样考虑: 
 #+BEGIN_SRC quote
-h(x)的预测与实际y值之间的差别越小越好. 特别是, 如果在理想情况下, 应该是一模一样. 
+h(x)的预测与实际y值之间的差别越小越好. 
+特别是, 如果在理想情况下, 应该是一模一样. 
 #+END_SRC
 于是我们可以定义: |h(x) - y|作为评价指标. 考虑到绝对值后续会遇到判断的问题, 更加简单的形式可以定义为 $J = \frac{1}{2}\left ( h(x) - y \right ) ^2$. 
 那么针对这一问题的学习过程就是, 通过改变W的值来最小化 $J$ 的过程.
@@ -53,8 +60,45 @@ h(x)的预测与实际y值之间的差别越小越好. 特别是, 如果在理�
      3. 在一个随机的w值的基础上, 使用有目的的修正值.
      
         
-     很明显的, 第三种方法是效率上最高的. 那么, 如何获得"有目的"的修正值? $J$ 在最小化的情况下, 其导数是为0的, 而恰好 $J$ 是一个理想的凸函数, 只需要沿着导数下降的方向进行修正, 就能保证到达 $J$ 的最小值.
-     
+     很明显的, 第三种方法是效率上最高的. 那么, 如何获得 _有目的_ 的修正值? $J$ 在最小化的情况下, 其导数是为0的, 而恰好 $J$ 是一个理想的凸函数, 只需要沿着导数下降的方向进行修正, 就能保证到达 $J$ 的最小值.
+     所以, 修正的方法就是:
+
+\begin{equation*}
+w_j = w_j - \alpha \frac{d}{dw_j} J(W)
+\end{equation*}
+
+其中 \alpha 被称为 *learning rate* . 这一方法就是在函数的梯度中, 找到最快速下降的方向. 
+
+
+为了实现这样的更新算法, 我们需要知道 $\frac{d}{dw_j} J(W)$ 这一项. 我们已知 $J$ 的形式, 于是针对每个w_j 求偏导就可以:
+\begin{align*}
+\frac{d}{dw_j} J(W) &= \frac{d}{dw_j} \frac{1}{2} (J_w(x) - y)^2 \\
+&= 2 \cdot  \frac{1}{2}(J_w(x) - y) \cdot \frac{d}{dw_j} (J_w(x) - y) \\
+&= (J_w(x) - y) \cdot \frac{d}{dw_j} (\sum_{i=0}^{n}w_ix_i - y) \\
+&= (J_w(x) - y) x_j
+\end{align*}
+
+于是我们每次更新的就方式就是:
+\begin{equation*}
+w_j = w_j - \alpha(J(x) - y)x_j
+\end{equation*}
+
+由于我们的训练集 $X$ 是一组数据, 我们可以选择两种方式来更新:
+ + 每个x更新一次
+#+BEGIN_quote
+while { \\
+  for i = 1 to m { \\
+    $w_j = w_j - \alpha (J(x_i) - y) x_j$ (for every j) \\
+  } \\
+}
+#+END_quote
+ + 遍历所有x后统一更新
+#+BEGIN_quote
+while { \\
+  $w_j = w_j - \alpha\sum_{i = 1}^m(J(x_i) - y)x_j$ (for every j) \\
+}
+#+END_quote
+另外可以作为折中, 遍历一部分x后再更新.
 *** 特征选择问题(多项式)
 *** 正则/Overfitting
     [[./imgs/overfitting.png]]
