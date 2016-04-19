@@ -103,6 +103,7 @@ while { \\
 *** 正则/Overfitting
     [[./imgs/overfitting.png]]
 *** 训练方法问题
+**** 随即梯度与批量梯度
 **** 牛顿法?
 **** 验证集/训练集的解释问题
 **** Learning Rate相关
@@ -131,5 +132,6 @@ while { \\
   5. https://colah.github.io/posts/2014-07-Conv-Nets-Modular/ [[https://github.com/colah/Conv-Nets-Series][Github]]
   6. http://cs229.stanford.edu/materials.html
   7. http://blog.csdn.net/zouxy09/article/details/8781543
+  8. http://www.cnblogs.com/maybe2030/p/4751804.html 牛顿法与随机下降法
 
 
