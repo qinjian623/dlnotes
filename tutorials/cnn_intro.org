@@ -1,0 +1,17 @@
+In this article, I'll try to explain why cnn works.
+* Prerequisite
+  
+* What is CNN & Why it works?
+** What 's CNN?
+*** What is the 'C'?
+    Weighted average.
+*** What is the 'NN'?
+*** C+NN
+*** Back to NN from CNN
+    NN is a global CNN
+** Why it works?
+*** Relationship with DPM
+*** Training expert in a very specific area without taking many years
+** Usage
+*** It is a Feature Extracter
+*** What's the feature of xx?
