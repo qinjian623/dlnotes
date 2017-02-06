@@ -1,0 +1,12 @@
+* Realtime CNN notes
+
+** Xception
+   + Separable Convolution Layer
+** QuickNet
+   + PReLu
+   + Simple Entry
+   + Xception
+** SqueezeNet
+   + 3x3 to 1x1
+   + Input channels
+

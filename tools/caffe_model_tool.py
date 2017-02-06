@@ -27,6 +27,14 @@ class God:
 class Machine:
 
     def make_conv(self, line):
+        cc = line[self._cursor]
+        if cc.isdigit():
+            pass
+        else:
+            return self._conv()
+
+    def _conv(kern_size=3, stride=2, pad=1):
+
         pass
 
     def __init__(self):
