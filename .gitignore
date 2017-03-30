@@ -8,4 +8,10 @@
 *.aux
 *.html
 ltxpng
-
+*.pyc
+*.zip
+*.txt
+*.params
+*.json
+*.npy
+__pycache__

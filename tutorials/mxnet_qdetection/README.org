@@ -1,0 +1,14 @@
+
+** Files Org:
+| data.py              | mxnet dataiter interface       |
+| label_factory.py     | multiprocess-labelfactory      |
+| label_gen_prcoess.py | label generator single process |
+| qd_symbol.py         | NN symbol define               |
+| qdio.py              | basic IO utils                 |
+
+
+
+
+
+
+
