@@ -64,7 +64,7 @@ class Corpus(object):
 
 class Word2Vec(nn.Module):
     """Container module with an encoder, a recurrent module, and a decoder."""
-    def __init__(self, d, ntoken, tie_weights=False):
+    def __init__(self, d, ntoken):
         super(Word2Vec, self).__init__()
         self.encoder = nn.Embedding(ntoken, d)
         self.decoder = nn.Linear(d, ntoken)
@@ -95,9 +95,10 @@ parser.add_argument('--save', type=str,  default='model.pt',
                     help='path to save the final model')
 args = parser.parse_args()
 
-model = Word2Vec()
-model.cuda()
 corpus = Corpus(args.data)
+ntokens = len(corpus.dictionary)
+model = Word2Vec(20, ntokens)
+model.cuda()
 optimizer = optim.SGD(model.parameters(), lr=args.lr, momentum=args.momentum)
 
 
